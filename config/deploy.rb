@@ -1,13 +1,13 @@
 set :application, "Test"
-set :repository,  "set your repository location here"
-
+set :repository,  "git@github.com:binku87/test.git"
 set :scm, :git
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
-
 set :user, "ubuntu"
+set :use_sudo, false
+set :deploy_to, "/home/ubuntu/apps/#{application}"
+
 role :web, "175.41.146.40"                          # Your HTTP server, Apache/etc
 role :app, "175.41.146.40"                          # This may be the same as your `Web` server
-role :db,  "175.41.146.40", :primary => true # This is where Rails migrations will run
+role :db,  "175.41.146.40", :primary => true        # This is where Rails migrations will run
 #server "tutorial.com", :app, :web, :db, :primary => true
 #role :db,  "your slave db-server here"
 
